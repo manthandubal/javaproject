@@ -1,0 +1,280 @@
+Jun 29, 2008 11:16:20 AM org.apache.catalina.core.ApplicationContext log
+INFO: ContextListener: contextInitialized()
+Jun 29, 2008 11:16:20 AM org.apache.catalina.core.ApplicationContext log
+INFO: SessionListener: contextInitialized()
+Jun 29, 2008 11:22:43 AM org.apache.catalina.core.StandardWrapperValve invoke
+SEVERE: Servlet.service() for servlet jsp threw exception
+org.apache.jasper.JasperException: /testmysql.jsp(3,4) Invalid directive
+	at org.apache.jasper.compiler.DefaultErrorHandler.jspError(DefaultErrorHandler.java:40)
+	at org.apache.jasper.compiler.ErrorDispatcher.dispatch(ErrorDispatcher.java:407)
+	at org.apache.jasper.compiler.ErrorDispatcher.jspError(ErrorDispatcher.java:88)
+	at org.apache.jasper.compiler.Parser.parseDirective(Parser.java:506)
+	at org.apache.jasper.compiler.Parser.parseElements(Parser.java:1433)
+	at org.apache.jasper.compiler.Parser.parse(Parser.java:133)
+	at org.apache.jasper.compiler.ParserController.doParse(ParserController.java:216)
+	at org.apache.jasper.compiler.ParserController.parse(ParserController.java:103)
+	at org.apache.jasper.compiler.Compiler.generateJava(Compiler.java:153)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:314)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:294)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:281)
+	at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:566)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:317)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:337)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:266)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:803)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:290)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:233)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:175)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:128)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:102)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:286)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:844)
+	at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:583)
+	at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:447)
+	at java.lang.Thread.run(Thread.java:619)
+Jun 29, 2008 11:23:02 AM org.apache.catalina.core.StandardWrapperValve invoke
+SEVERE: Servlet.service() for servlet jsp threw exception
+org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: 13 in the jsp file: /testmysql.jsp
+Syntax error, insert "AssignmentOperator Expression" to complete Assignment
+10: Connection dbconn;
+11: ResultSet results;
+12: PreparedStatement sql;
+13: TRY
+14: {
+15: 	Class.forname("com.mysql.jdbc.Driver").newInstance();
+16: 	TRY
+
+
+An error occurred at line: 13 in the jsp file: /testmysql.jsp
+Syntax error, insert ";" to complete Statement
+10: Connection dbconn;
+11: ResultSet results;
+12: PreparedStatement sql;
+13: TRY
+14: {
+15: 	Class.forname("com.mysql.jdbc.Driver").newInstance();
+16: 	TRY
+
+
+An error occurred at line: 13 in the jsp file: /testmysql.jsp
+TRY cannot be resolved
+10: Connection dbconn;
+11: ResultSet results;
+12: PreparedStatement sql;
+13: TRY
+14: {
+15: 	Class.forname("com.mysql.jdbc.Driver").newInstance();
+16: 	TRY
+
+
+An error occurred at line: 15 in the jsp file: /testmysql.jsp
+The method forname(String) is undefined for the type Class
+12: PreparedStatement sql;
+13: TRY
+14: {
+15: 	Class.forname("com.mysql.jdbc.Driver").newInstance();
+16: 	TRY
+17: 	{
+18: 		dbconn = DriverManager.getConnection("jdbc:mysql://localhost/visitor","","");
+
+
+An error occurred at line: 16 in the jsp file: /testmysql.jsp
+Syntax error, insert "AssignmentOperator Expression" to complete Assignment
+13: TRY
+14: {
+15: 	Class.forname("com.mysql.jdbc.Driver").newInstance();
+16: 	TRY
+17: 	{
+18: 		dbconn = DriverManager.getConnection("jdbc:mysql://localhost/visitor","","");
+19: 		uid = request.getParameter("userid");
+
+
+An error occurred at line: 16 in the jsp file: /testmysql.jsp
+Syntax error, insert ";" to complete Statement
+13: TRY
+14: {
+15: 	Class.forname("com.mysql.jdbc.Driver").newInstance();
+16: 	TRY
+17: 	{
+18: 		dbconn = DriverManager.getConnection("jdbc:mysql://localhost/visitor","","");
+19: 		uid = request.getParameter("userid");
+
+
+An error occurred at line: 16 in the jsp file: /testmysql.jsp
+TRY cannot be resolved
+13: TRY
+14: {
+15: 	Class.forname("com.mysql.jdbc.Driver").newInstance();
+16: 	TRY
+17: 	{
+18: 		dbconn = DriverManager.getConnection("jdbc:mysql://localhost/visitor","","");
+19: 		uid = request.getParameter("userid");
+
+
+An error occurred at line: 24 in the jsp file: /testmysql.jsp
+Password cannot be resolved
+21: 		sql = dbconn.prepareStatement("SELECT Password FROM login WHERE UseiId = '" + uid + "'");
+22: 
+23: 		results = sql.executeQuery();
+24: 		dpwd = results.getString(Password);
+25: 
+26: 		if(upwd==dpwd)
+27: 		{
+
+
+An error occurred at line: 34 in the jsp file: /testmysql.jsp
+Syntax error, insert "}" to complete Block
+31: 		{
+32: 			out.println("Invalid Username or Password");
+33: 		}
+34: 	}
+35: 	catch (SQLException s)
+36: 	{
+37: 		out.println("SQL Error<br>");
+
+
+An error occurred at line: 34 in the jsp file: /testmysql.jsp
+Syntax error, insert "}" to complete Block
+31: 		{
+32: 			out.println("Invalid Username or Password");
+33: 		}
+34: 	}
+35: 	catch (SQLException s)
+36: 	{
+37: 		out.println("SQL Error<br>");
+
+
+An error occurred at line: 39 in the jsp file: /testmysql.jsp
+Syntax error on token "}", delete this token
+36: 	{
+37: 		out.println("SQL Error<br>");
+38: 	}
+39: }
+40: catch (ClassNotFoundException err)
+41: {
+42: 	out.println("Class loading error");
+
+
+An error occurred at line: 103 in the generated java file
+Syntax error on tokens, delete these tokens
+
+An error occurred at line: 104 in the generated java file
+t cannot be resolved
+
+An error occurred at line: 108 in the generated java file
+t cannot be resolved
+
+An error occurred at line: 110 in the generated java file
+Syntax error on token "finally", delete this token
+
+Stacktrace:
+	at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:92)
+	at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:330)
+	at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:423)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:316)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:294)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:281)
+	at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:566)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:317)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:337)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:266)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:803)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:290)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:233)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:175)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:128)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:102)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:286)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:844)
+	at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:583)
+	at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:447)
+	at java.lang.Thread.run(Thread.java:619)
+Jun 29, 2008 11:23:30 AM org.apache.catalina.core.StandardWrapperValve invoke
+SEVERE: Servlet.service() for servlet jsp threw exception
+org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: 15 in the jsp file: /testmysql.jsp
+The method forname(String) is undefined for the type Class
+12: PreparedStatement sql;
+13: try
+14: {
+15: 	Class.forname("com.mysql.jdbc.Driver").newInstance();
+16: 	try
+17: 	{
+18: 		dbconn = DriverManager.getConnection("jdbc:mysql://localhost/visitor","","");
+
+
+An error occurred at line: 24 in the jsp file: /testmysql.jsp
+Password cannot be resolved
+21: 		sql = dbconn.prepareStatement("SELECT Password FROM login WHERE UseiId = '" + uid + "'");
+22: 
+23: 		results = sql.executeQuery();
+24: 		dpwd = results.getString(Password);
+25: 
+26: 		if(upwd==dpwd)
+27: 		{
+
+
+Stacktrace:
+	at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:92)
+	at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:330)
+	at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:423)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:316)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:294)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:281)
+	at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:566)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:317)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:337)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:266)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:803)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:290)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:233)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:175)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:128)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:102)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:286)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:844)
+	at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:583)
+	at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:447)
+	at java.lang.Thread.run(Thread.java:619)
+Jun 29, 2008 11:33:32 AM org.apache.catalina.core.StandardWrapperValve invoke
+SEVERE: Servlet.service() for servlet jsp threw exception
+org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: 15 in the jsp file: /testmysql.jsp
+The method forname(String) is undefined for the type Class
+12: PreparedStatement sql;
+13: try
+14: {
+15: 	Class.forname("com.mysql.jdbc.Driver").newInstance();
+16: 	try
+17: 	{
+18: 		dbconn = DriverManager.getConnection("jdbc:mysql://localhost/foodmart","root","");
+
+
+An error occurred at line: 24 in the jsp file: /testmysql.jsp
+Password cannot be resolved
+21: 		sql = dbconn.prepareStatement("show tables;");
+22: 
+23: 		results = sql.executeQuery();
+24: 		dpwd = results.getString(Password);
+25: 
+26: 		if(upwd==dpwd)
+27: 		{
+
+
+Stacktrace:
+	at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:92)
+	at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:330)
+	at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:423)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:316)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:294)
+
