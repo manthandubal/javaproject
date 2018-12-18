@@ -2,6 +2,7 @@ package HadoopProcess;
 import java.util.StringTokenizer;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -20,19 +21,22 @@ public class UnstructuredDataHandling {
 		System.out.println("Trying to read the file now");
 		
 		try {
-			BufferedReader br = new BufferedReader(new FileReader("E:\\Eclise_Workspace\\JavaProject\\src\\HelperFiles\\localhost.2008-06-29.log.log"));
+			//BufferedReader br1 = new BufferedReader(new FileReader("E:\\Eclise_Workspace\\JavaProject\\src\\HelperFiles\\localhost.2008-06-29.log.log"));
+			File currentDirFile = new File(".");
+			String helper = currentDirFile.getAbsolutePath();		
+			BufferedReader br = new BufferedReader(new FileReader(helper+"\\src\\HelperFiles\\localhost.2008-06-29.log.log"));
 			String line;
-			int lineCount = 0;
 			String DateString;
 			List<String> Time= new ArrayList<String>();
 			List<String> Error= new ArrayList<String>();
 			int ErrorCount = 0;
 			String ErrorString;
+			/*try (Stream<String> stream = Files.lines(Paths.get(fileName))) {
+        stream.forEach(System.out.println());
+}*/
 			while ((line = br.readLine()) != null) {
-				lineCount++;
 				try {
-					DateString=line.substring(0, 24);
-					
+					DateString=line.substring(0, 24).trim();
 					if (isValidDate(DateString))
 					 {
 						 Time.add(ErrorCount, DateString);
@@ -45,11 +49,15 @@ public class UnstructuredDataHandling {
 					continue;
 				}
 			 }
-			for(int i=0; i<Time.size();i++) {
-				System.out.println(Time.get(i));
-				System.out.println(Error.get(i));;
+			if (Time.isEmpty())
+				System.out.println("No proper Exception / Error details Found in file..!!");
+			else {
+				for(int i=0; i<Time.size();i++) {
+					System.out.println("Exception Time : "+Time.get(i));
+					System.out.println("Exception / Error : "+Error.get(i));
+				}
 			}
-			System.out.println(Time.size() +" " + Error.size() );
+			//System.out.println(Time.size() +" " + Error.size() );
 			br.close();
 		} catch (FileNotFoundException e1) {
 			// TODO Auto-generated catch block
@@ -58,11 +66,10 @@ public class UnstructuredDataHandling {
 			// TODO Auto-generated catch block
 			System.out.println("IO Exception handled");
 		}
-		System.out.println("File has been closed..!!");
 	}
 	private static boolean isValidDate(String inputString)
 	{
-		if(inputString.trim().matches("^([A-Z][a-z][a-z])( )([0-3][0-9]), \\d{4} (00|[0-9]|1[0-9]|2[0-3]):([0-9]|[0-5][0-9]):([0-9]|[0-5][0-9]) (AM|PM)"))
+		if(inputString.matches("^([A-Z][a-z][a-z])( )([0-3][0-9]), \\d{4} (00|[0-9]|1[0-9]|2[0-3]):([0-9]|[0-5][0-9]):([0-9]|[0-5][0-9]) (AM|PM)"))
 			return true;
 		else
 			return false;
